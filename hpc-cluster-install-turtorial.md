@@ -735,7 +735,7 @@ tar zvxf parallel_studio_xe_2020_update4_cluster_edition.tgz
 cd parallel_studio_xe_2020_update4_cluster_edition
 ./install.sh
 ```
-缺少以来的话，先给它装上：
+缺少依赖的话，先给它装上：
 ```shell
 yum install gtk3 libXScrnSaver kernel-devel-3.10.0-1160.36.2.el7.x86_64 xorg-x11-server-Xorg gcc-c++
 ```
@@ -750,4 +750,3 @@ echo "source /opt/intel/parallel_studio_xe_2020/psxevars.sh" >> ~/.bashrc
 ```
 ## 安装openmpi
 
-## 安装Materials Studio
