@@ -750,3 +750,21 @@ echo "source /opt/intel/parallel_studio_xe_2020/psxevars.sh" >> ~/.bashrc
 ```
 ## 安装openmpi
 
+OpenMPI是mpi的一个性能优越的实现。我们使用最新的稳定版4.1.1。安装包可以从[openmpi官网](https://www.open-mpi.org/software/ompi/v4.1/)获取。解压之后进行安装：
+```shell
+tar -zxvf openmpi-4.1.1.tar.gz
+cd openmpi-4.1.1/
+./configure --prefix=/public/soft/openmpi/4.1.1 --with-knem=/opt/knem-1.1.4.90mlnx1/ --with-mxm=/opt/mellanox/mxm/ --with-verbs --with-slurm CC=icc CXX=icpc FC=ifort
+make
+make install
+```
+然后把编译目录的config.log拷贝到安装目录/public/soft/openmpi/4.1.1中，以便大家了解软件安装的选项。
+
+接下来，编辑~/.bashrc加入如下代码：
+```shell
+MPI_HOME=/public/soft/openmpi/4.1.1
+export  PATH=${MPI_HOME}/bin:$PATH
+export  LD_LIBRARY_PATH=${MPI_HOME}/lib:$LD_LIBRARY_PATH
+export  MANPATH=${MPI_HOME}/share/man:$MANPATH
+```
+
